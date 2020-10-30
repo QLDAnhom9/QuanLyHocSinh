@@ -41,12 +41,12 @@
             this.txtMaLop = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.dgvData = new System.Windows.Forms.DataGridView();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.btnClear = new System.Windows.Forms.Button();
             this.MaLop = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TenLop = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.GVCN = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SoHocSinh = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.btnClear = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvData)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -140,7 +140,6 @@
             this.txtTenLop.Name = "txtTenLop";
             this.txtTenLop.Size = new System.Drawing.Size(164, 22);
             this.txtTenLop.TabIndex = 12;
-            this.txtTenLop.TextChanged += new System.EventHandler(this.txtTenLop_TextChanged);
             // 
             // label3
             // 
@@ -158,6 +157,7 @@
             this.cbbGVCN.Name = "cbbGVCN";
             this.cbbGVCN.Size = new System.Drawing.Size(164, 24);
             this.cbbGVCN.TabIndex = 10;
+            this.cbbGVCN.SelectedIndexChanged += new System.EventHandler(this.cbbGVCN_SelectedIndexChanged);
             // 
             // label1
             // 
@@ -187,6 +187,7 @@
             // dgvData
             // 
             this.dgvData.AllowUserToAddRows = false;
+            this.dgvData.AllowUserToDeleteRows = false;
             this.dgvData.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -198,36 +199,11 @@
             this.SoHocSinh});
             this.dgvData.Location = new System.Drawing.Point(6, 19);
             this.dgvData.Name = "dgvData";
+            this.dgvData.ReadOnly = true;
+            this.dgvData.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvData.Size = new System.Drawing.Size(575, 414);
             this.dgvData.TabIndex = 32;
             this.dgvData.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvData_CellClick);
-            // 
-            // MaLop
-            // 
-            this.MaLop.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.MaLop.FillWeight = 60F;
-            this.MaLop.HeaderText = "Mã lớp";
-            this.MaLop.Name = "MaLop";
-            // 
-            // TenLop
-            // 
-            this.TenLop.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.TenLop.FillWeight = 60F;
-            this.TenLop.HeaderText = "Tên lớp";
-            this.TenLop.Name = "TenLop";
-            // 
-            // GVCN
-            // 
-            this.GVCN.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.GVCN.HeaderText = "Giáo viên chủ nhiệm";
-            this.GVCN.Name = "GVCN";
-            // 
-            // SoHocSinh
-            // 
-            this.SoHocSinh.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.SoHocSinh.FillWeight = 60F;
-            this.SoHocSinh.HeaderText = "Sĩ số";
-            this.SoHocSinh.Name = "SoHocSinh";
             // 
             // groupBox2
             // 
@@ -255,6 +231,41 @@
             this.btnClear.Text = "Clear";
             this.btnClear.UseVisualStyleBackColor = false;
             this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
+            // 
+            // MaLop
+            // 
+            this.MaLop.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.MaLop.FillWeight = 60F;
+            this.MaLop.HeaderText = "Mã lớp";
+            this.MaLop.Name = "MaLop";
+            this.MaLop.ReadOnly = true;
+            this.MaLop.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // TenLop
+            // 
+            this.TenLop.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.TenLop.FillWeight = 60F;
+            this.TenLop.HeaderText = "Tên lớp";
+            this.TenLop.Name = "TenLop";
+            this.TenLop.ReadOnly = true;
+            this.TenLop.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // GVCN
+            // 
+            this.GVCN.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.GVCN.HeaderText = "Giáo viên chủ nhiệm";
+            this.GVCN.Name = "GVCN";
+            this.GVCN.ReadOnly = true;
+            this.GVCN.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // SoHocSinh
+            // 
+            this.SoHocSinh.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.SoHocSinh.FillWeight = 60F;
+            this.SoHocSinh.HeaderText = "Sĩ số";
+            this.SoHocSinh.Name = "SoHocSinh";
+            this.SoHocSinh.ReadOnly = true;
+            this.SoHocSinh.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
             // fLop
             // 

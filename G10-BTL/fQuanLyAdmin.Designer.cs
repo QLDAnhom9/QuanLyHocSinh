@@ -34,9 +34,9 @@
             this.quanLyGiaoVienToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.lopHocToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.monHocToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.quảnLýĐiểmToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ketQuaHocTapToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.thoatToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.quảnLýĐiểmToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -61,7 +61,7 @@
             // 
             this.trangChuToolStripMenuItem.Image = global::G10_BTL.Properties.Resources.background;
             this.trangChuToolStripMenuItem.Name = "trangChuToolStripMenuItem";
-            this.trangChuToolStripMenuItem.Size = new System.Drawing.Size(87, 20);
+            this.trangChuToolStripMenuItem.Size = new System.Drawing.Size(89, 20);
             this.trangChuToolStripMenuItem.Text = "Trang chủ";
             this.trangChuToolStripMenuItem.Click += new System.EventHandler(this.trangChuToolStripMenuItem_Click);
             // 
@@ -69,8 +69,8 @@
             // 
             this.quanLyHcSinhToolStripMenuItem.Image = global::G10_BTL.Properties.Resources.student;
             this.quanLyHcSinhToolStripMenuItem.Name = "quanLyHcSinhToolStripMenuItem";
-            this.quanLyHcSinhToolStripMenuItem.Size = new System.Drawing.Size(128, 20);
-            this.quanLyHcSinhToolStripMenuItem.Text = "Quảnr lý học sinh";
+            this.quanLyHcSinhToolStripMenuItem.Size = new System.Drawing.Size(124, 20);
+            this.quanLyHcSinhToolStripMenuItem.Text = "Quản lý học sinh";
             this.quanLyHcSinhToolStripMenuItem.Click += new System.EventHandler(this.quanLyHcSinhToolStripMenuItem_Click);
             // 
             // quanLyGiaoVienToolStripMenuItem
@@ -97,6 +97,14 @@
             this.monHocToolStripMenuItem.Text = "Môn học";
             this.monHocToolStripMenuItem.Click += new System.EventHandler(this.monHocToolStripMenuItem_Click);
             // 
+            // quảnLýĐiểmToolStripMenuItem
+            // 
+            this.quảnLýĐiểmToolStripMenuItem.Image = global::G10_BTL.Properties.Resources.confirm;
+            this.quảnLýĐiểmToolStripMenuItem.Name = "quảnLýĐiểmToolStripMenuItem";
+            this.quảnLýĐiểmToolStripMenuItem.Size = new System.Drawing.Size(106, 20);
+            this.quảnLýĐiểmToolStripMenuItem.Text = "Quản lý điểm";
+            this.quảnLýĐiểmToolStripMenuItem.Click += new System.EventHandler(this.quảnLýĐiểmToolStripMenuItem_Click);
+            // 
             // ketQuaHocTapToolStripMenuItem
             // 
             this.ketQuaHocTapToolStripMenuItem.Image = global::G10_BTL.Properties.Resources.Cup;
@@ -109,17 +117,9 @@
             // 
             this.thoatToolStripMenuItem.Image = global::G10_BTL.Properties.Resources.exit;
             this.thoatToolStripMenuItem.Name = "thoatToolStripMenuItem";
-            this.thoatToolStripMenuItem.Size = new System.Drawing.Size(65, 20);
+            this.thoatToolStripMenuItem.Size = new System.Drawing.Size(66, 20);
             this.thoatToolStripMenuItem.Text = "Thoát";
             this.thoatToolStripMenuItem.Click += new System.EventHandler(this.thoatToolStripMenuItem_Click);
-            // 
-            // quảnLýĐiểmToolStripMenuItem
-            // 
-            this.quảnLýĐiểmToolStripMenuItem.Image = global::G10_BTL.Properties.Resources.confirm;
-            this.quảnLýĐiểmToolStripMenuItem.Name = "quảnLýĐiểmToolStripMenuItem";
-            this.quảnLýĐiểmToolStripMenuItem.Size = new System.Drawing.Size(106, 20);
-            this.quảnLýĐiểmToolStripMenuItem.Text = "Quản lý điểm";
-            this.quảnLýĐiểmToolStripMenuItem.Click += new System.EventHandler(this.quảnLýĐiểmToolStripMenuItem_Click);
             // 
             // QuanLyAdmin
             // 

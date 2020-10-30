@@ -1,9 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.28307.1259
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29911.84
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "G9-BTL", "G10-BTL\G9-BTL.csproj", "{B976DC14-4A05-4886-9918-8B7A29CC4035}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "G10-BTL", "G10-BTL\G10-BTL.csproj", "{B976DC14-4A05-4886-9918-8B7A29CC4035}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

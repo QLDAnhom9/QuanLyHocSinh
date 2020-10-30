@@ -1,8 +1,8 @@
-use master
+use [master]
 go
 -- drop database QuanLyTruongHoc
 create database QuanLyTruongHoc
-
+go
 use QuanLyTruongHoc
 
 go
@@ -29,8 +29,6 @@ create table GiaoVien(
 	tgKetThuc datetime,
 	trangThai bit
 )
-
-insert into GiaoVien values('admin', 'admin123', 'admin', '', '', '', '', '', '', '', 0)
 
 create table Lop(
 	maLop int identity(1, 1) primary key,
@@ -83,5 +81,42 @@ create table Diem(
 	constraint PK_Diem_HocSinh foreign key(maHS) references HocSinh(maHS)
 )
 
-
-select * from Lop
+GO
+insert into GiaoVien values('admin', 'admin123', 'admin', '', '', '', '', '', '', '', 0)
+-- 5 bản ghi giáo viên
+INSERT INTO [dbo].[GIAOVIEN] ([ten], [gioiTinh], [ngaySinh] ) VALUES(N'Hà Thị Hương', N'Nữ', '1/1/1988')
+INSERT INTO [dbo].[GIAOVIEN] ([ten], [gioiTinh], [ngaySinh] ) VALUES(N'Nguyễn Thị Trà', N'Nữ' , '2/2/1989')
+INSERT INTO [dbo].[GIAOVIEN] ([ten], [gioiTinh], [ngaySinh] ) VALUES(N'Uông Văn Toàn', N'Nam' , '3/3/1979')
+INSERT INTO [dbo].[GIAOVIEN] ([ten], [gioiTinh], [ngaySinh] ) VALUES(N'Trần Thị Hiền', N'Nữ' , '4/4/1981')
+INSERT INTO [dbo].[GIAOVIEN] ([ten], [gioiTinh], [ngaySinh] ) VALUES(N'Mai Như Tuyết', N'Nữ' , '5/5/1983')
+-- 5 bản ghi học sinh
+INSERT INTO [dbo].[HOCSINH] ([ten], [gioiTinh], [ngaySinh] ) VALUES(N'Vũ Linh Nhi', N'Nữ' , '1/1/2011')
+INSERT INTO [dbo].[HOCSINH] ([ten], [gioiTinh], [ngaySinh] ) VALUES(N'Trần Tuấn Sơn', N'Nam' , '2/2/2011')
+INSERT INTO [dbo].[HOCSINH] ([ten], [gioiTinh], [ngaySinh] ) VALUES(N'Hoàng Văn Thắng', N'Nam' , '3/3/2013')
+INSERT INTO [dbo].[HOCSINH] ([ten], [gioiTinh], [ngaySinh] ) VALUES(N'Phan Thị Hiền', N'Nữ' , '4/4/2012')
+INSERT INTO [dbo].[HOCSINH] ([ten], [gioiTinh], [ngaySinh] ) VALUES(N'Như Thị Tuyết Mai', N'Nữ' , '5/5/2011')
+-- bản ghi lớp
+INSERT INTO [dbo].[LOP] ([tenLop]) VALUES(N'1A')
+INSERT INTO [dbo].[LOP] ([tenLop]) VALUES(N'1B')
+INSERT INTO [dbo].[LOP] ([tenLop]) VALUES(N'1C')
+INSERT INTO [dbo].[LOP] ([tenLop]) VALUES(N'2A')
+INSERT INTO [dbo].[LOP] ([tenLop]) VALUES(N'2B')
+INSERT INTO [dbo].[LOP] ([tenLop]) VALUES(N'2C')
+INSERT INTO [dbo].[LOP] ([tenLop]) VALUES(N'3A')
+INSERT INTO [dbo].[LOP] ([tenLop]) VALUES(N'3B')
+INSERT INTO [dbo].[LOP] ([tenLop]) VALUES(N'3C')
+INSERT INTO [dbo].[LOP] ([tenLop]) VALUES(N'4A')
+INSERT INTO [dbo].[LOP] ([tenLop]) VALUES(N'4B')
+INSERT INTO [dbo].[LOP] ([tenLop]) VALUES(N'4C')
+INSERT INTO [dbo].[LOP] ([tenLop]) VALUES(N'5A')
+INSERT INTO [dbo].[LOP] ([tenLop]) VALUES(N'5B')
+INSERT INTO [dbo].[LOP] ([tenLop]) VALUES(N'5C')
+-- bản ghi môn học
+INSERT INTO [dbo].[MON] ([tenMon]) VALUES(N'Tiếng Việt')
+INSERT INTO [dbo].[MON] ([tenMon]) VALUES(N'Toán')
+INSERT INTO [dbo].[MON] ([tenMon]) VALUES(N'Tiếng Anh')
+INSERT INTO [dbo].[MON] ([tenMon]) VALUES(N'Âm nhạc')
+INSERT INTO [dbo].[MON] ([tenMon]) VALUES(N'Thể dục')
+INSERT INTO [dbo].[MON] ([tenMon]) VALUES(N'Đạo đức')
+INSERT INTO [dbo].[MON] ([tenMon]) VALUES(N'Mỹ thuật')
+INSERT INTO [dbo].[MON] ([tenMon]) VALUES(N'Tự nhiên-Xã hội')

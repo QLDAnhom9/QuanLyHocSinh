@@ -34,7 +34,7 @@ namespace G10_BTL.GUI
             cbbGVCN.DisplayMember = "Ten";
             cbbGVCN.ValueMember = "MaGV";
             cbbGVCN.SelectedIndex = -1;
-            cbbGVCN.SelectedText = "Chọn giáo viên";
+            
             if (db.Lop.Count() > 0)
             {
                 txtMaLop.Text = (db.Lop.Max(m => m.maLop) + 1).ToString();
@@ -90,7 +90,7 @@ namespace G10_BTL.GUI
                 }
                 if (!ck)
                 {
-                    MessageBox.Show("Tên lớp không hớp lệ!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    MessageBox.Show("Tên lớp không hợp lệ!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     return;
                 }
 
@@ -126,7 +126,7 @@ namespace G10_BTL.GUI
 
         private void btnCapNhat_Click(object sender, EventArgs e)
         {
-            int malop = int.Parse(txtMaLop.Text.ToString());
+            int malop = int.Parse(txtMaLop.Text.ToString().Trim());
             if (txtTenLop.Text == "")
             {
                 MessageBox.Show("Bạn chưa nhập tên lớp", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
@@ -137,32 +137,8 @@ namespace G10_BTL.GUI
                 return;
             }
 
-            malop = int.Parse(txtMaLop.Text);
-            string tenlop = txtMaLop.Text;
-            int magv = cbbGVCN.SelectedIndex;
-            Lop lop = db.Lop.Where(m => m.maLop == malop && m.trangThai==true).FirstOrDefault();
-            if(ldc == lop)
-            {
-                return;
-            }
-
-            bool ck = true;
-            for (int i = 0; i < tenlop.Length; i++)
-            {
-                if (tenlop[i] >= 'a' && tenlop[i] <= 'z' || tenlop[i] >= 'A' && tenlop[i] <= 'Z' || tenlop[i] >= '0' && tenlop[i] <= '9' || tenlop[i]==' ')
-                {
-                    continue;
-                }
-                else
-                {
-                    ck = false;
-                }
-            }
-            if (!ck)
-            {
-                MessageBox.Show("Tên lớp không hớp lệ!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                return;
-            }
+            string tenlop = txtTenLop.Text.Trim();
+            int magv = int.Parse(cbbGVCN.SelectedValue.ToString().Trim());
 
             Lop x = db.Lop.Where(m => m.tenLop == tenlop && m.trangThai == true).FirstOrDefault();
             if (x != null && x.maLop!=malop)
@@ -247,6 +223,7 @@ namespace G10_BTL.GUI
             GiaoVien gv = db.GiaoVien.Where(m => m.maGV == l.maGVCN).FirstOrDefault();
             List<GiaoVien> lgv = db.GiaoVien.Where(m => m.trangThai == true).ToList();
             int vt = -1;
+            if ( gv != null)
             for (int i = 0; i < lgv.Count; i++)
             {
                 if (lgv[i].maGV == gv.maGV)
@@ -259,20 +236,11 @@ namespace G10_BTL.GUI
             cbbGVCN.SelectedIndex = vt;
         }
 
-        private void txtTenLop_TextChanged(object sender, EventArgs e)
+        private void cbbGVCN_SelectedIndexChanged(object sender, EventArgs e)
         {
-            string x = txtTenLop.Text;
-            if (x.Trim() == "")
+            if ( cbbGVCN.SelectedIndex == -1 )
             {
-                Lop_Load(sender, e);
-            }
-            Lop l = db.Lop.Where(m => m.tenLop == x).FirstOrDefault();
-            if (l != null)
-            {
-                txtMaLop.Text = l.maLop.ToString();
-                GiaoVien gv = db.GiaoVien.Where(m => m.maGV == l.maGVCN).FirstOrDefault();
-                cbbGVCN.SelectedText = gv.ten;
-                cbbGVCN.SelectedValue = gv.maGV;
+                cbbGVCN.SelectedText = "Chọn giáo viên";
             }
         }
     }

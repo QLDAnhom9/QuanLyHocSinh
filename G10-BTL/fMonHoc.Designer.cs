@@ -32,6 +32,8 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.cbbGVDay = new System.Windows.Forms.ComboBox();
             this.cbbHocKy = new System.Windows.Forms.ComboBox();
+            this.cbbLop = new System.Windows.Forms.ComboBox();
+            this.label6 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.txtTenMonHoc = new System.Windows.Forms.TextBox();
@@ -45,8 +47,6 @@
             this.btnCapNhat = new System.Windows.Forms.Button();
             this.btnThemMoi = new System.Windows.Forms.Button();
             this.btnClear = new System.Windows.Forms.Button();
-            this.cbbLop = new System.Windows.Forms.ComboBox();
-            this.label6 = new System.Windows.Forms.Label();
             this.MaMon = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TenMon = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.GIaoVienDay = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -62,7 +62,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(365, 9);
+            this.label5.Location = new System.Drawing.Point(407, 9);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(170, 24);
             this.label5.TabIndex = 30;
@@ -96,6 +96,7 @@
             this.cbbGVDay.Size = new System.Drawing.Size(197, 24);
             this.cbbGVDay.TabIndex = 14;
             this.cbbGVDay.Text = "Chọn giáo viên dạy";
+            this.cbbGVDay.SelectedIndexChanged += new System.EventHandler(this.cbbGVDay_SelectedIndexChanged);
             // 
             // cbbHocKy
             // 
@@ -105,6 +106,26 @@
             this.cbbHocKy.Size = new System.Drawing.Size(197, 24);
             this.cbbHocKy.TabIndex = 13;
             this.cbbHocKy.Text = "Chọn học kỳ";
+            this.cbbHocKy.SelectedIndexChanged += new System.EventHandler(this.cbbHocKy_SelectedIndexChanged);
+            // 
+            // cbbLop
+            // 
+            this.cbbLop.FormattingEnabled = true;
+            this.cbbLop.Location = new System.Drawing.Point(110, 29);
+            this.cbbLop.Name = "cbbLop";
+            this.cbbLop.Size = new System.Drawing.Size(197, 24);
+            this.cbbLop.TabIndex = 12;
+            this.cbbLop.Text = "Chọn lớp";
+            this.cbbLop.SelectedIndexChanged += new System.EventHandler(this.cbbLop_SelectedIndexChanged);
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(16, 32);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(34, 16);
+            this.label6.TabIndex = 11;
+            this.label6.Text = "Lớp:";
             // 
             // label4
             // 
@@ -159,6 +180,7 @@
             // dgvData
             // 
             this.dgvData.AllowUserToAddRows = false;
+            this.dgvData.AllowUserToDeleteRows = false;
             this.dgvData.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -172,6 +194,7 @@
             this.NamHoc});
             this.dgvData.Location = new System.Drawing.Point(6, 19);
             this.dgvData.Name = "dgvData";
+            this.dgvData.ReadOnly = true;
             this.dgvData.Size = new System.Drawing.Size(612, 443);
             this.dgvData.TabIndex = 24;
             this.dgvData.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvData_CellClick);
@@ -259,42 +282,30 @@
             this.btnClear.UseVisualStyleBackColor = false;
             this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
             // 
-            // cbbLop
-            // 
-            this.cbbLop.FormattingEnabled = true;
-            this.cbbLop.Location = new System.Drawing.Point(110, 29);
-            this.cbbLop.Name = "cbbLop";
-            this.cbbLop.Size = new System.Drawing.Size(197, 24);
-            this.cbbLop.TabIndex = 12;
-            this.cbbLop.Text = "Chọn lớp";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(16, 32);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(34, 16);
-            this.label6.TabIndex = 11;
-            this.label6.Text = "Lớp:";
-            // 
             // MaMon
             // 
             this.MaMon.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.MaMon.FillWeight = 80F;
             this.MaMon.HeaderText = "Mã môn";
             this.MaMon.Name = "MaMon";
+            this.MaMon.ReadOnly = true;
+            this.MaMon.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
             // TenMon
             // 
             this.TenMon.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.TenMon.HeaderText = "Tên môn";
             this.TenMon.Name = "TenMon";
+            this.TenMon.ReadOnly = true;
+            this.TenMon.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
             // GIaoVienDay
             // 
             this.GIaoVienDay.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.GIaoVienDay.HeaderText = "Giáo viên dạy";
             this.GIaoVienDay.Name = "GIaoVienDay";
+            this.GIaoVienDay.ReadOnly = true;
+            this.GIaoVienDay.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
             // HocKy
             // 
@@ -302,6 +313,8 @@
             this.HocKy.FillWeight = 60F;
             this.HocKy.HeaderText = "Học kỳ";
             this.HocKy.Name = "HocKy";
+            this.HocKy.ReadOnly = true;
+            this.HocKy.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
             // lop
             // 
@@ -309,6 +322,8 @@
             this.lop.FillWeight = 60F;
             this.lop.HeaderText = "Lớp";
             this.lop.Name = "lop";
+            this.lop.ReadOnly = true;
+            this.lop.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
             // NamHoc
             // 
@@ -316,6 +331,8 @@
             this.NamHoc.FillWeight = 60F;
             this.NamHoc.HeaderText = "Năm học";
             this.NamHoc.Name = "NamHoc";
+            this.NamHoc.ReadOnly = true;
+            this.NamHoc.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
             // fMonHoc
             // 

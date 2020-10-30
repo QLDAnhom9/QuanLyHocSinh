@@ -40,10 +40,6 @@ namespace G10_BTL.GUI
             cbbHocKy.SelectedIndex = -1;
             cbbGVDay.SelectedIndex = -1;
 
-            cbbGVDay.SelectedText = "Chọn giáo viên dạy";
-            cbbHocKy.SelectedText = "Chọn học kỳ";
-            cbbLop.SelectedText = "Chọn lớp";
-
             if (db.Mon.Count() > 0)
             {
                 txtMaMonHoc.Text = (db.Mon.Select(m => m.maMon).Max() + 1).ToString();
@@ -56,15 +52,20 @@ namespace G10_BTL.GUI
             txtTenMonHoc.Text = "";
 
             List<Mon> list = db.Mon.Where(m => m.trangThai == true).ToList();
-            foreach(Mon i in list)
+            
+            foreach (Mon i in list)
             {
-                HocKy hk = db.HocKy.Where(m => m.maHK == i.maHK).FirstOrDefault();
-                GiaoVien gv = db.GiaoVien.Where(m => m.maGV == i.gvDay).FirstOrDefault();
-                Lop l = db.Lop.Where(m => m.maLop == i.maLop && m.trangThai == true).FirstOrDefault();
-                if (l != null)
+                string tenGV = "", tenHK = "", tenLop = "", nam = "";
+                if ( i.maHK != null )
+                    tenHK = db.HocKy.Where(m => m.maHK == i.maHK).Select(m => m.tenHK).FirstOrDefault().ToString();
+                if ( i.gvDay != null )
+                    tenGV = db.GiaoVien.Where(m => m.maGV == i.gvDay).Select(m => m.ten).FirstOrDefault().ToString();
+                if (i.maLop != null)
                 {
-                    dgvData.Rows.Add(i.maMon, i.tenMon, gv.ten, hk.tenHK, l.tenLop, l.nam);
+                    tenLop = db.Lop.Where(m => m.maLop == i.maLop && m.trangThai == true).Select(m => m.tenLop).FirstOrDefault().ToString();
+                    nam = db.Lop.Where(m => m.maLop == i.maLop && m.trangThai == true).Select(m => m.nam).FirstOrDefault().ToString();
                 }
+                dgvData.Rows.Add(i.maMon, i.tenMon, tenGV, tenHK, tenLop, nam);
             }
         }
 
@@ -105,6 +106,7 @@ namespace G10_BTL.GUI
             int magv = int.Parse(cbbGVDay.SelectedValue.ToString());
             int mamon = int.Parse(txtMaMonHoc.Text);
             string tenmon = txtTenMonHoc.Text;
+
             Mon x = db.Mon.Where(m => m.maMon == mamon).FirstOrDefault();
             if (x != null || x == mon)
             {
@@ -247,45 +249,25 @@ namespace G10_BTL.GUI
         private void dgvData_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             int index = dgvData.CurrentRow.Index;
-
             int mamon = int.Parse(dgvData.Rows[index].Cells[0].Value.ToString());
-            string tengv = dgvData.Rows[index].Cells[2].Value.ToString();
-            string tenhk = dgvData.Rows[index].Cells[3].Value.ToString();
-            string tenlop = dgvData.Rows[index].Cells[4].Value.ToString();
+            string tengv, tenhk, tenlop;
+            try
+            {
+                tengv = dgvData.Rows[index].Cells[2].Value.ToString();
+                tenhk = dgvData.Rows[index].Cells[3].Value.ToString();
+                tenlop = dgvData.Rows[index].Cells[4].Value.ToString();
+            }
+            catch (Exception)
+            {
+                tenlop = "";
+                tenhk = "";
+                tengv = "";
+            }
 
             Mon x = db.Mon.Where(m => m.maMon == mamon && m.trangThai == true).FirstOrDefault();
             mon = x;
 
-            List<GiaoVien> lgv = db.GiaoVien.Where(m => m.trangThai == true).ToList();
-            List<Lop> ll = db.Lop.Where(m => m.trangThai == true).ToList();
-            List<HocKy> lhk = db.HocKy.ToList();
-
             int vt1 = -1, vt2 = -1, vt3 = -1;
-
-            for(int i = 0; i < lgv.Count; i++)
-            {
-                if(lgv[i].ten == tengv)
-                {
-                    vt3 = i;
-                    break;
-                }
-            }
-            for (int i = 0; i < ll.Count; i++)
-            {
-                if (ll[i].tenLop == tenlop)
-                {
-                    vt1 = i;
-                    break;
-                }
-            }
-            for (int i = 0; i < lhk.Count; i++)
-            {
-                if (lhk[i].tenHK == tenhk)
-                {
-                    vt2 = i;
-                    break;
-                }
-            }
 
             cbbGVDay.SelectedIndex = vt3;
             cbbHocKy.SelectedIndex = vt2;
@@ -293,6 +275,30 @@ namespace G10_BTL.GUI
 
             txtMaMonHoc.Text = mamon.ToString();
             txtTenMonHoc.Text = x.tenMon;
+        }
+
+        private void cbbLop_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cbbLop.SelectedIndex == -1)
+            {
+                cbbLop.SelectedText = "Chọn lớp";
+            }
+        }
+
+        private void cbbHocKy_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cbbHocKy.SelectedIndex == -1)
+            {
+                cbbHocKy.SelectedText = "Chọn học kỳ";
+            }
+        }
+
+        private void cbbGVDay_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cbbGVDay.SelectedIndex == -1)
+            {
+                cbbGVDay.SelectedText = "Chọn giáo viên dạy";
+            }
         }
     }
 }

@@ -59,13 +59,12 @@ namespace G10_BTL.GUI
                 cbbLop.DisplayMember = "TenLop";
                 cbbLop.ValueMember = "MaLop";
                 cbbLop.SelectedIndex = -1;
-                cbbLop.SelectedText = "Chọn lớp";
 
                 cbbLopTimKiem.DataSource = db.Lop.Where(m => m.trangThai == true).ToList();
                 cbbLopTimKiem.DisplayMember = "TenLop";
                 cbbLopTimKiem.ValueMember = "MaLop";
                 cbbLopTimKiem.SelectedIndex = -1;
-                cbbLopTimKiem.SelectedText = "Chọn lớp";
+                
             }
             else{
                 Lop x = db.Lop.Where(m => m.trangThai == true && m.maGVCN == gv.maGV).FirstOrDefault();
@@ -111,47 +110,7 @@ namespace G10_BTL.GUI
                 MessageBox.Show("Bạn chưa nhập tên", " Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return false;
             }
-            if(tendangnhap == "")
-            {
-                MessageBox.Show("Bạn chưa nhập tên đăng nhập", " Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                return false;
-            }
-            if(matkhau == "")
-            {
-                MessageBox.Show("Bạn chưa nhập mật khẩu", " Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                return false;
-            }
-            bool ck = true;
-            for (int i = 0; i < matkhau.Length; i++)
-            {
-                if (matkhau[i] >= 'a' && matkhau[i] <= 'z' || matkhau[i] >= 'A' && matkhau[i] <= 'A' || matkhau[i] >= '0' && matkhau[i] <= '9')
-                {
-                    continue;
-                }
-                else
-                {
-                    ck = false;
-                    break;
-                }
-            }
-            if (!ck)
-            {
-                MessageBox.Show("Mật khẩu không hợp lệ!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                return false;
-            }
-            for (int i = 0; i < sdt.Length; i++)
-            {
-                if (sdt[i] >= '0' && sdt[i] <= '9')
-                {
-                    continue;
-                }
-                else
-                {
-                    ck = false;
-                    break;
-                }
-            }
-            if (!ck || sdt.Length!=10 || sdt[0]!='0')
+            if ( sdt != "" && sdt.Length != 10 )
             {
                 MessageBox.Show("Số điện thoại không hợp lệ!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return false;
@@ -348,7 +307,10 @@ namespace G10_BTL.GUI
         {
             int index = dgvData.CurrentRow.Index;
             int mahs = int.Parse(dgvData.Rows[index].Cells[0].Value.ToString());
-
+            if (index == -1 )
+            {
+                return;
+            }
             HocSinh hs = db.HocSinh.Where(m => m.maHS == mahs && m.trangThai == true).FirstOrDefault();
             Lop l = db.Lop.Where(m => m.maLop == hs.maLop && m.trangThai == true).FirstOrDefault();
             txtMaHocSinh.Text = mahs.ToString();
@@ -362,7 +324,14 @@ namespace G10_BTL.GUI
             {
                 rdbNu.Checked = true;
             }
-            string tenlop = dgvData.Rows[index].Cells[6].Value.ToString();
+            string tenlop = "";
+            try
+            {
+                tenlop = dgvData.Rows[index].Cells[6].Value.ToString();
+            }
+            catch (Exception)
+            {
+            }
             List<Lop> list = db.Lop.Where(m => m.trangThai == true).ToList();
             cbbLop.DataSource = list;
             int vt = -1;
@@ -379,6 +348,22 @@ namespace G10_BTL.GUI
             txtSDT.Text = hs.sdt;
             txtDiaChi.Text = hs.diaChi;
             dtpNgayVaoHoc.Text = hs.tgBatDau.ToString();
+        }
+
+        private void cbbLop_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cbbLop.SelectedIndex == -1 )
+            {
+                cbbLop.SelectedText = "Chọn lớp";
+            }
+        }
+
+        private void cbbLopTimKiem_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cbbLopTimKiem.SelectedIndex == -1)
+            {
+                cbbLopTimKiem.SelectedText = "Chọn lớp";
+            }
         }
     }
 }

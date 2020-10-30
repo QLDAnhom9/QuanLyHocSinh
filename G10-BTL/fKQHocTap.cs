@@ -308,12 +308,12 @@ namespace G10_BTL.GUI
                         }
                     }
                 }
-                catch (Exception ex)
+                catch (Exception)
                 {
                     return;
                 }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return;
             }
@@ -325,7 +325,7 @@ namespace G10_BTL.GUI
             {
                 Load_Data();
             }
-            catch(Exception ex)
+            catch(Exception)
             {
                 return;
             }
@@ -365,7 +365,7 @@ namespace G10_BTL.GUI
 
                 Load_Data();
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return;
             }
@@ -377,7 +377,7 @@ namespace G10_BTL.GUI
             {
                 Load_Data();
             }
-            catch(Exception ex)
+            catch(Exception)
             {
                 return;
             }
@@ -415,7 +415,7 @@ namespace G10_BTL.GUI
 
                 Load_Data();
             }
-            catch(Exception ex)
+            catch(Exception)
             {
                 return;
             }
