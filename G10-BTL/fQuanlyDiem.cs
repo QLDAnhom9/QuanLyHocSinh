@@ -163,7 +163,7 @@ namespace G10_BTL.GUI
                     diemCuoiKy = double.Parse(txtDiemCuoiKy.Text);
                 }
             }
-            catch(Exception ex)
+            catch(Exception)
             {
                 return false;
             }
@@ -232,7 +232,7 @@ namespace G10_BTL.GUI
                 MessageBox.Show("Nhập điểm thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 cbbMonHoc_SelectedIndexChanged(sender, e);
             }
-            catch(Exception ex)
+            catch(Exception)
             {
                 return;
             }
@@ -294,7 +294,7 @@ namespace G10_BTL.GUI
                 MessageBox.Show("Xóa điểm thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 cbbMonHoc_SelectedIndexChanged(sender, e);
             }
-            catch (Exception ex)
+            catch (Exception )
             {
                 return;
             }
@@ -336,7 +336,7 @@ namespace G10_BTL.GUI
                 }
                 MessageBox.Show("Lưu điểm thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
-            catch(Exception ex)
+            catch(Exception)
             {
                 return;
             }
@@ -394,7 +394,7 @@ namespace G10_BTL.GUI
                     }
                 }
             }
-            catch(Exception ex)
+            catch(Exception)
             {
                 return;
             }
@@ -427,7 +427,7 @@ namespace G10_BTL.GUI
                     loadData();
                 }
             }
-            catch(Exception ex)
+            catch(Exception)
             {
                 return;
             }
@@ -460,7 +460,7 @@ namespace G10_BTL.GUI
                 cbbMonHoc.DataSource = listmon;
                 loadData();
             }
-            catch(Exception ex)
+            catch(Exception)
             {
                 return;
             }
@@ -493,7 +493,7 @@ namespace G10_BTL.GUI
                 
                 loadData();
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return;
             }
@@ -511,7 +511,7 @@ namespace G10_BTL.GUI
                 {
                     txtTenHocSinh.Text = dgvData.Rows[index].Cells[1].Value.ToString();
                 }
-                catch (Exception ex)
+                catch (Exception)
                 {
                     return;
                 }
@@ -551,7 +551,7 @@ namespace G10_BTL.GUI
                     txtDiemCuoiKy.Text = dgvData.Rows[index].Cells[5].Value.ToString();
                     txtDiemGiuaKy.Text = dgvData.Rows[index].Cells[4].Value.ToString();
                 }
-                catch(Exception ex)
+                catch(Exception)
                 {
                     return;
                 }

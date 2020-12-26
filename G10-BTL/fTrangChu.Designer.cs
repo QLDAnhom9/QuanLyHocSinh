@@ -34,7 +34,6 @@
             this.lbTenNguoiDung = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.btnThongTinCaNhan = new System.Windows.Forms.Button();
             this.btnDoiMatKhau = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.groupBox1.SuspendLayout();
@@ -48,7 +47,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Monotype Corsiva", 21.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(315, 25);
+            this.label4.Location = new System.Drawing.Point(315, 39);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(504, 36);
             this.label4.TabIndex = 15;
@@ -99,7 +98,6 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.btnThongTinCaNhan);
             this.groupBox2.Controls.Add(this.btnDoiMatKhau);
             this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox2.Location = new System.Drawing.Point(23, 256);
@@ -108,18 +106,6 @@
             this.groupBox2.TabIndex = 14;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Chức năng - Quyền hạn";
-            // 
-            // btnThongTinCaNhan
-            // 
-            this.btnThongTinCaNhan.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
-            this.btnThongTinCaNhan.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnThongTinCaNhan.Location = new System.Drawing.Point(18, 85);
-            this.btnThongTinCaNhan.Name = "btnThongTinCaNhan";
-            this.btnThongTinCaNhan.Size = new System.Drawing.Size(149, 32);
-            this.btnThongTinCaNhan.TabIndex = 8;
-            this.btnThongTinCaNhan.Text = "Thông tin cá nhân";
-            this.btnThongTinCaNhan.UseVisualStyleBackColor = false;
-            this.btnThongTinCaNhan.Click += new System.EventHandler(this.btnThongTinCaNhan_Click);
             // 
             // btnDoiMatKhau
             // 
@@ -183,6 +169,5 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Button btnDoiMatKhau;
-        private System.Windows.Forms.Button btnThongTinCaNhan;
     }
 }

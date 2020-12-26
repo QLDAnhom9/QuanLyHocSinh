@@ -32,7 +32,6 @@ namespace G10_BTL.GUI
             {
                 lbChucVu.Text = "Admin";
                 lbTenNguoiDung.Text = "Admin";
-                btnThongTinCaNhan.Visible = false;
             }
             else if(hs!=null)
             {
@@ -63,19 +62,5 @@ namespace G10_BTL.GUI
             TrangChu_Load(sender, e);
         }
 
-        private void btnThongTinCaNhan_Click(object sender, EventArgs e)
-        {
-            fTTCaNhan tTCaNhan = new fTTCaNhan();
-            if (gv != null)
-            {
-                tTCaNhan.Tag = gv;
-            }
-            else
-            {
-                tTCaNhan.Tag = hs;
-            }
-            tTCaNhan.ShowDialog();
-            TrangChu_Load(sender, e);
-        }
     }
 }
