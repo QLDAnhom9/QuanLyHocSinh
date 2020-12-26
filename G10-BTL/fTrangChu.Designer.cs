@@ -48,7 +48,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Monotype Corsiva", 21.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(368, 20);
+            this.label4.Location = new System.Drawing.Point(315, 25);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(504, 36);
             this.label4.TabIndex = 15;
@@ -60,7 +60,7 @@
             this.groupBox1.Controls.Add(this.lbTenNguoiDung);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(48, 36);
+            this.groupBox1.Location = new System.Drawing.Point(23, 78);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(191, 134);
             this.groupBox1.TabIndex = 13;
@@ -102,7 +102,7 @@
             this.groupBox2.Controls.Add(this.btnThongTinCaNhan);
             this.groupBox2.Controls.Add(this.btnDoiMatKhau);
             this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox2.Location = new System.Drawing.Point(48, 214);
+            this.groupBox2.Location = new System.Drawing.Point(23, 256);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(191, 156);
             this.groupBox2.TabIndex = 14;
@@ -139,14 +139,14 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBox1.Image = global::G10_BTL.Properties.Resources.background;
-            this.pictureBox1.Location = new System.Drawing.Point(245, 75);
+            this.pictureBox1.Location = new System.Drawing.Point(238, 78);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(713, 354);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 16;
             this.pictureBox1.TabStop = false;
             // 
-            // TrangChu
+            // fTrangChu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -158,7 +158,7 @@
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.groupBox2);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
-            this.Name = "TrangChu";
+            this.Name = "fTrangChu";
             this.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
