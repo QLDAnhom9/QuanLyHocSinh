@@ -153,6 +153,7 @@
     <Compile Include="fQuanLyAdmin.Designer.cs">
       <DependentUpon>fQuanLyAdmin.cs</DependentUpon>
     </Compile>
+    <Compile Include="Settings.cs" />
     <EmbeddedResource Include="fDangnhap.resx">
       <DependentUpon>fDangnhap.cs</DependentUpon>
     </EmbeddedResource>

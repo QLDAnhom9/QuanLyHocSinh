@@ -32,6 +32,7 @@
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.cbbHocSinh = new System.Windows.Forms.ComboBox();
             this.cbbLop = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.comboBox3 = new System.Windows.Forms.ComboBox();
@@ -63,7 +64,6 @@
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
-            this.cbbHocSinh = new System.Windows.Forms.ComboBox();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -136,6 +136,15 @@
             this.groupBox3.TabIndex = 22;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Kết quả tổng kết";
+            // 
+            // cbbHocSinh
+            // 
+            this.cbbHocSinh.FormattingEnabled = true;
+            this.cbbHocSinh.Location = new System.Drawing.Point(104, 64);
+            this.cbbHocSinh.Name = "cbbHocSinh";
+            this.cbbHocSinh.Size = new System.Drawing.Size(170, 24);
+            this.cbbHocSinh.TabIndex = 12;
+            this.cbbHocSinh.SelectedIndexChanged += new System.EventHandler(this.cbbHocSinh_SelectedIndexChanged);
             // 
             // cbbLop
             // 
@@ -433,6 +442,7 @@
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel3.Size = new System.Drawing.Size(928, 34);
             this.tableLayoutPanel3.TabIndex = 3;
+            this.tableLayoutPanel3.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanel3_Paint);
             // 
             // panel1
             // 
@@ -452,15 +462,6 @@
             this.label1.Size = new System.Drawing.Size(171, 24);
             this.label1.TabIndex = 19;
             this.label1.Text = "Kết Quả Học Tập";
-            // 
-            // cbbHocSinh
-            // 
-            this.cbbHocSinh.FormattingEnabled = true;
-            this.cbbHocSinh.Location = new System.Drawing.Point(104, 64);
-            this.cbbHocSinh.Name = "cbbHocSinh";
-            this.cbbHocSinh.Size = new System.Drawing.Size(170, 24);
-            this.cbbHocSinh.TabIndex = 12;
-            this.cbbHocSinh.SelectedIndexChanged += new System.EventHandler(this.cbbHocSinh_SelectedIndexChanged);
             // 
             // fKQHocTap
             // 

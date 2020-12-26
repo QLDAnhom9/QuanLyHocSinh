@@ -32,29 +32,29 @@ namespace G10_BTL.GUI
 
             
             listmon = db.Mon.Where(m => m.trangThai == true).ToList();
-            if(gv.ten != "admin")
+            if(gv.ten != Settings.ADMIN)
             {
                 listmon = listmon.Where(m => m.gvDay == gv.maGV).ToList();
             }
             txtTenHocSinh.Text = "";
 
             cbbLop.DataSource = db.Lop.Where(m => m.trangThai == true).ToList();
-            cbbLop.DisplayMember = "TenLop";
-            cbbLop.ValueMember = "MaLop";
+            cbbLop.DisplayMember = Settings.TEN_LOP;
+            cbbLop.ValueMember = Settings.MA_LOP;
             cbbLop.SelectedIndex = -1;
-            cbbLop.SelectedText = "Chọn lớp";
+            cbbLop.SelectedText = Settings.CHON_LOP;
 
             cbbHocKy.DataSource = db.HocKy.ToList();
-            cbbHocKy.DisplayMember = "tenHK";
-            cbbHocKy.ValueMember = "maHK";
+            cbbHocKy.DisplayMember = Settings.TEN_HK;
+            cbbHocKy.ValueMember = Settings.MA_HK;
             cbbHocKy.SelectedIndex = -1;
-            cbbHocKy.SelectedText = "Chọn học kỳ";
+            cbbHocKy.SelectedText = Settings.CHON_HOC_KY;
 
             cbbMonHoc.DataSource = listmon;
-            cbbMonHoc.DisplayMember = "tenMon";
-            cbbMonHoc.ValueMember = "maMon";
+            cbbMonHoc.DisplayMember = Settings.TEN_MON;
+            cbbMonHoc.ValueMember = Settings.MA_MON;
             cbbMonHoc.SelectedIndex = -1;
-            cbbMonHoc.SelectedText = "Chọn môn học";
+            cbbMonHoc.SelectedText = Settings.CHON_MON;
             sl++;
             foreach (Mon m in listmon)
             { 
@@ -358,11 +358,11 @@ namespace G10_BTL.GUI
 
                 List<NhapDiem> nhapdiem = new List<NhapDiem>();
                 nhapdiem = listnd;
-                if (tenlop.Trim() != "" && tenlop != "Chọn lớp")
+                if (tenlop.Trim() != "" && tenlop != Settings.CHON_LOP)
                 {
                     nhapdiem = listnd.Where(n => n.lop == tenlop).ToList();
                 }
-                if (hocky.Trim() != "" && hocky != "Chọn học kỳ")
+                if (hocky.Trim() != "" && hocky != Settings.CHON_HOC_KY)
                 {
                     nhapdiem = listnd.Where(n => n.hocKy == hocky).ToList();
                 }
@@ -449,7 +449,7 @@ namespace G10_BTL.GUI
                     int malop = int.Parse(cbbLop.SelectedValue.ToString());
                     listmon = listmon.Where(m => m.maLop == malop).ToList();
                 }
-                if (gv.ten != "admin")
+                if (gv.ten != Settings.ADMIN)
                 {
                     listmon = listmon.Where(m => m.gvDay == gv.maGV).ToList();
                 }
@@ -481,7 +481,7 @@ namespace G10_BTL.GUI
                     int mahk = int.Parse(cbbHocKy.SelectedValue.ToString());
                     listmon = listmon.Where(m => m.maHK == mahk).ToList();
                 }
-                if (gv.ten != "admin")
+                if (gv.ten != Settings.ADMIN)
                 {
                     listmon = listmon.Where(m => m.gvDay == gv.maGV).ToList();
                 }
@@ -557,6 +557,11 @@ namespace G10_BTL.GUI
                 }
             }
             dem++;
+        }
+
+        private void groupBox3_Enter(object sender, EventArgs e)
+        {
+
         }
 
         private void btnClear_Click(object sender, EventArgs e)

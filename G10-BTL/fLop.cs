@@ -31,8 +31,8 @@ namespace G10_BTL.GUI
                 dgvData.Rows.Add(i.maLop, i.tenLop, tengv, sl.Count());
             }
             cbbGVCN.DataSource = db.GiaoVien.Where(m => m.trangThai == true).ToList();
-            cbbGVCN.DisplayMember = "Ten";
-            cbbGVCN.ValueMember = "MaGV";
+            cbbGVCN.DisplayMember = Settings.TEN_GV;
+            cbbGVCN.ValueMember = Settings.MA_GV;
             cbbGVCN.SelectedIndex = -1;
             
             if (db.Lop.Count() > 0)
@@ -41,7 +41,7 @@ namespace G10_BTL.GUI
             }
             else
             {
-                txtMaLop.Text = "1";
+                txtMaLop.Text = Settings.MA_LOP_MAC_DINH;
             }
             txtMaLop.Enabled = false;
             txtTenLop.Text = "";
@@ -240,7 +240,7 @@ namespace G10_BTL.GUI
         {
             if ( cbbGVCN.SelectedIndex == -1 )
             {
-                cbbGVCN.SelectedText = "Chọn giáo viên";
+                cbbGVCN.SelectedText = Settings.CHON_GV;
             }
         }
     }

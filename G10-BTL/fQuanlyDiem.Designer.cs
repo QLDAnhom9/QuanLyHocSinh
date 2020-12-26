@@ -47,14 +47,14 @@
             this.cbbMonHoc = new System.Windows.Forms.ComboBox();
             this.txtTenHocSinh = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.cbbHocKy = new System.Windows.Forms.ComboBox();
+            this.cbbLop = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.btnXoa = new System.Windows.Forms.Button();
             this.btnLuuLai = new System.Windows.Forms.Button();
             this.btnXacNhan = new System.Windows.Forms.Button();
-            this.cbbLop = new System.Windows.Forms.ComboBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.cbbHocKy = new System.Windows.Forms.ComboBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.btnClear = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvData)).BeginInit();
@@ -247,6 +247,60 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Thông tin cần thiết";
             // 
+            // cbbHocKy
+            // 
+            this.cbbHocKy.FormattingEnabled = true;
+            this.cbbHocKy.Items.AddRange(new object[] {
+            "Toán",
+            "Tiếng Việt",
+            "Tiếng Anh",
+            "Thể Dục",
+            "Khoa Học Tự Nhiên",
+            "Đạo Đức",
+            "Mỹ Thuật",
+            ""});
+            this.cbbHocKy.Location = new System.Drawing.Point(107, 56);
+            this.cbbHocKy.Name = "cbbHocKy";
+            this.cbbHocKy.Size = new System.Drawing.Size(187, 24);
+            this.cbbHocKy.TabIndex = 12;
+            this.cbbHocKy.SelectedIndexChanged += new System.EventHandler(this.cbbHocKy_SelectedIndexChanged);
+            // 
+            // cbbLop
+            // 
+            this.cbbLop.FormattingEnabled = true;
+            this.cbbLop.Items.AddRange(new object[] {
+            "Toán",
+            "Tiếng Việt",
+            "Tiếng Anh",
+            "Thể Dục",
+            "Khoa Học Tự Nhiên",
+            "Đạo Đức",
+            "Mỹ Thuật",
+            ""});
+            this.cbbLop.Location = new System.Drawing.Point(416, 56);
+            this.cbbLop.Name = "cbbLop";
+            this.cbbLop.Size = new System.Drawing.Size(206, 24);
+            this.cbbLop.TabIndex = 11;
+            this.cbbLop.SelectedIndexChanged += new System.EventHandler(this.cbbLop_SelectedIndexChanged);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(357, 62);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(34, 16);
+            this.label1.TabIndex = 10;
+            this.label1.Text = "Lớp:";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(14, 59);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(53, 16);
+            this.label3.TabIndex = 9;
+            this.label3.Text = "Học kỳ:";
+            // 
             // label5
             // 
             this.label5.AutoSize = true;
@@ -300,60 +354,6 @@
             this.btnXacNhan.UseVisualStyleBackColor = false;
             this.btnXacNhan.Click += new System.EventHandler(this.btnXacNhan_Click);
             // 
-            // cbbLop
-            // 
-            this.cbbLop.FormattingEnabled = true;
-            this.cbbLop.Items.AddRange(new object[] {
-            "Toán",
-            "Tiếng Việt",
-            "Tiếng Anh",
-            "Thể Dục",
-            "Khoa Học Tự Nhiên",
-            "Đạo Đức",
-            "Mỹ Thuật",
-            ""});
-            this.cbbLop.Location = new System.Drawing.Point(416, 56);
-            this.cbbLop.Name = "cbbLop";
-            this.cbbLop.Size = new System.Drawing.Size(206, 24);
-            this.cbbLop.TabIndex = 11;
-            this.cbbLop.SelectedIndexChanged += new System.EventHandler(this.cbbLop_SelectedIndexChanged);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(357, 62);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(34, 16);
-            this.label1.TabIndex = 10;
-            this.label1.Text = "Lớp:";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(14, 59);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(53, 16);
-            this.label3.TabIndex = 9;
-            this.label3.Text = "Học kỳ:";
-            // 
-            // cbbHocKy
-            // 
-            this.cbbHocKy.FormattingEnabled = true;
-            this.cbbHocKy.Items.AddRange(new object[] {
-            "Toán",
-            "Tiếng Việt",
-            "Tiếng Anh",
-            "Thể Dục",
-            "Khoa Học Tự Nhiên",
-            "Đạo Đức",
-            "Mỹ Thuật",
-            ""});
-            this.cbbHocKy.Location = new System.Drawing.Point(107, 56);
-            this.cbbHocKy.Name = "cbbHocKy";
-            this.cbbHocKy.Size = new System.Drawing.Size(187, 24);
-            this.cbbHocKy.TabIndex = 12;
-            this.cbbHocKy.SelectedIndexChanged += new System.EventHandler(this.cbbHocKy_SelectedIndexChanged);
-            // 
             // groupBox3
             // 
             this.groupBox3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -370,6 +370,7 @@
             this.groupBox3.Size = new System.Drawing.Size(883, 246);
             this.groupBox3.TabIndex = 24;
             this.groupBox3.TabStop = false;
+            this.groupBox3.Enter += new System.EventHandler(this.groupBox3_Enter);
             // 
             // btnClear
             // 

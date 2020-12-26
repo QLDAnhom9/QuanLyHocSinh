@@ -25,16 +25,16 @@ namespace G10_BTL.GUI
             dgvData.Rows.Clear();
 
             cbbGVDay.DataSource = db.GiaoVien.Where(m => m.trangThai == true).ToList();
-            cbbGVDay.ValueMember = "maGV";
-            cbbGVDay.DisplayMember = "ten";
+            cbbGVDay.ValueMember = Settings.MA_GV;
+            cbbGVDay.DisplayMember = Settings.TEN_GV;
 
             cbbHocKy.DataSource = db.HocKy.ToList();
-            cbbHocKy.DisplayMember = "tenHK";
-            cbbHocKy.ValueMember = "maHK";
+            cbbHocKy.DisplayMember = Settings.TEN_HK;
+            cbbHocKy.ValueMember = Settings.MA_HK;
 
             cbbLop.DataSource = db.Lop.Where(m=>m.trangThai == true).ToList();
-            cbbLop.DisplayMember = "tenLop";
-            cbbLop.ValueMember = "maLop";
+            cbbLop.DisplayMember = Settings.TEN_LOP;
+            cbbLop.ValueMember = Settings.MA_LOP;
 
             cbbLop.SelectedIndex = -1;
             cbbHocKy.SelectedIndex = -1;
@@ -46,7 +46,7 @@ namespace G10_BTL.GUI
             }
             else
             {
-                txtMaMonHoc.Text = "1";
+                txtMaMonHoc.Text = Settings.MA_MH_MAC_DINH;
             }
             txtMaMonHoc.Enabled = false;
             txtTenMonHoc.Text = "";
@@ -78,17 +78,17 @@ namespace G10_BTL.GUI
         {
             if (cbbLop.SelectedIndex == -1)
             {
-                MessageBox.Show("Bạn chưa chọn lớp", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Bạn chưa " + Settings.CHON_LOP.ToLower(), "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return false;
             }
             if (cbbHocKy.SelectedIndex == -1)
             {
-                MessageBox.Show("Bạn chưa chọn học kỳ", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Bạn chưa " + Settings.CHON_HOC_KY.ToLower(), "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return false;
             }
             if (cbbGVDay.SelectedIndex == -1)
             {
-                MessageBox.Show("Bạn chưa chọn giáo viên dạy", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Bạn chưa " + Settings.CHON_GV.ToLower(), "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return false;
             }
             return true;
@@ -281,7 +281,7 @@ namespace G10_BTL.GUI
         {
             if (cbbLop.SelectedIndex == -1)
             {
-                cbbLop.SelectedText = "Chọn lớp";
+                cbbLop.SelectedText = Settings.CHON_LOP;
             }
         }
 
@@ -289,7 +289,7 @@ namespace G10_BTL.GUI
         {
             if (cbbHocKy.SelectedIndex == -1)
             {
-                cbbHocKy.SelectedText = "Chọn học kỳ";
+                cbbHocKy.SelectedText = Settings.CHON_HOC_KY;
             }
         }
 
@@ -297,7 +297,7 @@ namespace G10_BTL.GUI
         {
             if (cbbGVDay.SelectedIndex == -1)
             {
-                cbbGVDay.SelectedText = "Chọn giáo viên dạy";
+                cbbGVDay.SelectedText = Settings.CHON_GV;
             }
         }
     }

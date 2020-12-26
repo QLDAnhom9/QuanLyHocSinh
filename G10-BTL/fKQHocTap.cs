@@ -383,6 +383,11 @@ namespace G10_BTL.GUI
             }
         }
 
+        private void tableLayoutPanel3_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
         private void cbbLop_SelectedIndexChanged(object sender, EventArgs e)
         {
             try

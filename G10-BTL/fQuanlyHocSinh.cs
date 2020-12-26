@@ -13,12 +13,7 @@ namespace G10_BTL.GUI
     public partial class fQuanlyHocSinh : Form
     {
 
-        private static String NAM = "Nam";
-        private static String NU = "Nữ";
-        private static String CHON_LOP = "Chọn lớp";
-        private static String ADMIN = "admin";
-        private static String TEN_LOP = "TenLop";
-        private static String MA_LOP = "MaLop";
+        
 
         GiaoVien gv = new GiaoVien();
         public fQuanlyHocSinh()
@@ -46,7 +41,7 @@ namespace G10_BTL.GUI
             }
             else
             {
-                txtMaHocSinh.Text = "2020000";
+                txtMaHocSinh.Text = Settings.MA_HS_MAC_DINH;
             }
             txtMatKhau.Text = txtMaHocSinh.Text;
             rdbNam.Checked = true;
@@ -54,7 +49,7 @@ namespace G10_BTL.GUI
             txtSDT.Text = "";
             txtTenHocSinh.Text = "";
 
-            if (gv.ten == ADMIN)
+            if (gv.ten == Settings.ADMIN)
             {
                 List<HocSinh> lisths = db.HocSinh.Where(m => m.trangThai == true).ToList();
                 foreach (HocSinh i in lisths)
@@ -64,13 +59,13 @@ namespace G10_BTL.GUI
                 }
 
                 cbbLop.DataSource = db.Lop.Where(m => m.trangThai == true).ToList();
-                cbbLop.DisplayMember = TEN_LOP;
-                cbbLop.ValueMember = MA_LOP;
+                cbbLop.DisplayMember = Settings.TEN_LOP;
+                cbbLop.ValueMember = Settings.MA_LOP;
                 cbbLop.SelectedIndex = -1;
 
                 cbbLopTimKiem.DataSource = db.Lop.Where(m => m.trangThai == true).ToList();
-                cbbLopTimKiem.DisplayMember = TEN_LOP;
-                cbbLopTimKiem.ValueMember = MA_LOP;
+                cbbLopTimKiem.DisplayMember = Settings.TEN_LOP;
+                cbbLopTimKiem.ValueMember = Settings.MA_LOP;
                 cbbLopTimKiem.SelectedIndex = -1;
                 
             }
@@ -83,14 +78,14 @@ namespace G10_BTL.GUI
                 }
 
                 cbbLop.DataSource = db.Lop.Where(m => m.trangThai == true && m.maGVCN == gv.maGV).ToList();
-                cbbLop.DisplayMember = TEN_LOP;
-                cbbLop.ValueMember = MA_LOP;
+                cbbLop.DisplayMember = Settings.TEN_LOP;
+                cbbLop.ValueMember = Settings.MA_LOP;
                 cbbLop.SelectedIndex = 0;
                 cbbLop.Enabled = false;
 
                 cbbLopTimKiem.DataSource = db.Lop.Where(m => m.trangThai == true && m.maGVCN == gv.maGV).ToList();
-                cbbLopTimKiem.DisplayMember = TEN_LOP;
-                cbbLopTimKiem.ValueMember = MA_LOP;
+                cbbLopTimKiem.DisplayMember = Settings.TEN_LOP;
+                cbbLopTimKiem.ValueMember = Settings.MA_LOP;
                 cbbLopTimKiem.SelectedIndex = 0;
                 cbbLopTimKiem.Enabled = false;
             }
@@ -107,7 +102,7 @@ namespace G10_BTL.GUI
             string tendangnhap = "", matkhau = "",  sdt = "";
             if(cbbLop.SelectedIndex == -1)
             {
-                MessageBox.Show("Bạn chưa chọn lớp", " Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Bạn chưa chọn lớp", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return false;
             }
             tendangnhap = txtMaHocSinh.Text;
@@ -115,7 +110,7 @@ namespace G10_BTL.GUI
             sdt = txtSDT.Text;
             if(txtTenHocSinh.Text == "")
             {
-                MessageBox.Show("Bạn chưa nhập tên", " Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Bạn chưa nhập tên", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return false;
             }
             if ( sdt != "" && sdt.Length != 10 )
@@ -146,11 +141,11 @@ namespace G10_BTL.GUI
             matkhau = txtMatKhau.Text;
             if (rdbNam.Checked)
             {
-                gioitinh = NAM;
+                gioitinh = Settings.NAM;
             }
             else
             {
-                gioitinh = NU;
+                gioitinh = Settings.NU;
             }
             malop = int.Parse(cbbLop.SelectedValue.ToString());
             sdt = txtSDT.Text;
@@ -262,11 +257,11 @@ namespace G10_BTL.GUI
             tenhs = txtTenHocSinh.Text;
             if (rdbNam.Checked)
             {
-                gioitinh = NAM;
+                gioitinh = Settings.NAM;
             }
             else
             {
-                gioitinh = NU;
+                gioitinh = Settings.NU;
             }
             malop = int.Parse(cbbLop.SelectedValue.ToString());
             sdt = txtSDT.Text;
@@ -324,7 +319,7 @@ namespace G10_BTL.GUI
             txtMaHocSinh.Text = mahs.ToString();
             txtTenHocSinh.Text = hs.ten;
 
-            if (hs.gioiTinh == NAM)
+            if (hs.gioiTinh == Settings.NAM)
             {
                 rdbNam.Checked = true;
             }
@@ -362,7 +357,7 @@ namespace G10_BTL.GUI
         {
             if (cbbLop.SelectedIndex == -1 )
             {
-                cbbLop.SelectedText = CHON_LOP;
+                cbbLop.SelectedText = Settings.CHON_LOP;
             }
         }
 
@@ -370,7 +365,7 @@ namespace G10_BTL.GUI
         {
             if (cbbLopTimKiem.SelectedIndex == -1)
             {
-                cbbLopTimKiem.SelectedText = CHON_LOP;
+                cbbLopTimKiem.SelectedText = Settings.CHON_LOP;
             }
         }
 

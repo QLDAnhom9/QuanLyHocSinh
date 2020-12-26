@@ -28,22 +28,22 @@ namespace G10_BTL.GUI
 
             hs = this.Tag as HocSinh;
             gv = this.Tag as GiaoVien;
-            if(gv!=null && gv.ten == "admin")
+            if(gv!=null && gv.ten == Settings.ADMIN)
             {
-                lbChucVu.Text = "Admin";
-                lbTenNguoiDung.Text = "Admin";
+                lbChucVu.Text = Settings.ADMIN.ToUpper();
+                lbTenNguoiDung.Text = Settings.ADMIN.ToUpper();
             }
             else if(hs!=null)
             {
                 HocSinh hocsinh = db.HocSinh.Where(m => m.maHS == hs.maHS).SingleOrDefault();
-                lbChucVu.Text = "Học sinh";
+                lbChucVu.Text = Settings.HOC_SINH;
                 lbTenNguoiDung.Text = hocsinh.ten.ToString();
             }
             else
             {
-                GiaoVien giaovine = db.GiaoVien.Where(m => m.maGV == gv.maGV).SingleOrDefault();
-                lbChucVu.Text = "Giáo viên";
-                lbTenNguoiDung.Text = giaovine.ten.ToString();
+                GiaoVien giaovien = db.GiaoVien.Where(m => m.maGV == gv.maGV).SingleOrDefault();
+                lbChucVu.Text = Settings.GIAO_VIEN;
+                lbTenNguoiDung.Text = giaovien.ten.ToString();
             }
         }
 

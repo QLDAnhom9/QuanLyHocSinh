@@ -82,11 +82,11 @@ namespace G10_BTL.GUI
             ngaysinh = dtpNgaySinh.Value.ToString();
             if (rdbNam.Checked)
             {
-                gioitinh = "Nam";
+                gioitinh = Settings.NAM;
             }
             else
             {
-                gioitinh = "Nữ";
+                gioitinh = Settings.NU;
             }
             sdt = txtSDT.Text;
             diachi = txtDiaChi.Text;
@@ -157,11 +157,11 @@ namespace G10_BTL.GUI
             ngaysinh = dtpNgaySinh.Value.ToString();
             if (rdbNam.Checked)
             {
-                gioitinh = "Nam";
+                gioitinh = Settings.NAM;
             }
             else
             {
-                gioitinh = "Nữ";
+                gioitinh = Settings.NU;
             }
             sdt = txtSDT.Text;
             diachi = txtDiaChi.Text;
@@ -247,7 +247,7 @@ namespace G10_BTL.GUI
             txtMatKhau.Text = gv.matKhau;
             
 
-            if (gv.gioiTinh == "Nam")
+            if (gv.gioiTinh == Settings.NAM)
             {
                 rdbNam.Checked = true;
             }
@@ -255,9 +255,9 @@ namespace G10_BTL.GUI
             {
                 rdbNu.Checked = true;
             }
-            dtpNgaySinh.CustomFormat = "dd/MM/yyyy";
+            dtpNgaySinh.CustomFormat = Settings.DINH_DANG_NGAY;
             dtpNgaySinh.Format = DateTimePickerFormat.Custom;
-            dtpNgayVaoLam.CustomFormat = "dd/MM/yyyy";
+            dtpNgayVaoLam.CustomFormat = Settings.DINH_DANG_NGAY;
             dtpNgayVaoLam.Format = DateTimePickerFormat.Custom;
             dtpNgaySinh.Value = DateTime.Parse(gv.ngaySinh.ToString());
             try
