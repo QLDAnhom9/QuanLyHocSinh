@@ -16,5 +16,6 @@ namespace G10_BTL
         public double? diemCuoiKy { get; set; }
         public string hocKy { get; set; }
         public string lop { get; set; }
+
     }
 }

@@ -29,8 +29,6 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.txtMatKhau = new System.Windows.Forms.TextBox();
-            this.label13 = new System.Windows.Forms.Label();
             this.cbbLop = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
             this.dtpNgayVaoHoc = new System.Windows.Forms.DateTimePicker();
@@ -85,8 +83,6 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.txtMatKhau);
-            this.groupBox1.Controls.Add(this.label13);
             this.groupBox1.Controls.Add(this.cbbLop);
             this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Controls.Add(this.dtpNgayVaoHoc);
@@ -113,27 +109,10 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Nhập thông tin";
             // 
-            // txtMatKhau
-            // 
-            this.txtMatKhau.Location = new System.Drawing.Point(103, 116);
-            this.txtMatKhau.Name = "txtMatKhau";
-            this.txtMatKhau.PasswordChar = '*';
-            this.txtMatKhau.Size = new System.Drawing.Size(165, 22);
-            this.txtMatKhau.TabIndex = 59;
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(5, 117);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(65, 16);
-            this.label13.TabIndex = 58;
-            this.label13.Text = "Mật khẩu:";
-            // 
             // cbbLop
             // 
             this.cbbLop.FormattingEnabled = true;
-            this.cbbLop.Location = new System.Drawing.Point(103, 86);
+            this.cbbLop.Location = new System.Drawing.Point(103, 106);
             this.cbbLop.Name = "cbbLop";
             this.cbbLop.Size = new System.Drawing.Size(165, 24);
             this.cbbLop.TabIndex = 57;
@@ -142,7 +121,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(7, 88);
+            this.label7.Location = new System.Drawing.Point(7, 108);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(34, 16);
             this.label7.TabIndex = 56;
@@ -215,7 +194,7 @@
             // 
             // txtSDT
             // 
-            this.txtSDT.Location = new System.Drawing.Point(383, 68);
+            this.txtSDT.Location = new System.Drawing.Point(383, 69);
             this.txtSDT.Name = "txtSDT";
             this.txtSDT.Size = new System.Drawing.Size(175, 22);
             this.txtSDT.TabIndex = 8;
@@ -223,7 +202,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(289, 70);
+            this.label5.Location = new System.Drawing.Point(288, 72);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(89, 16);
             this.label5.TabIndex = 7;
@@ -233,7 +212,7 @@
             // 
             this.dtpNgaySinh.CustomFormat = "dd/MM/yyyy";
             this.dtpNgaySinh.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpNgaySinh.Location = new System.Drawing.Point(383, 27);
+            this.dtpNgaySinh.Location = new System.Drawing.Point(384, 31);
             this.dtpNgaySinh.Name = "dtpNgaySinh";
             this.dtpNgaySinh.Size = new System.Drawing.Size(175, 22);
             this.dtpNgaySinh.TabIndex = 6;
@@ -241,7 +220,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(289, 32);
+            this.label4.Location = new System.Drawing.Point(289, 36);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(71, 16);
             this.label4.TabIndex = 5;
@@ -257,7 +236,7 @@
             // 
             // txtTenHocSinh
             // 
-            this.txtTenHocSinh.Location = new System.Drawing.Point(103, 56);
+            this.txtTenHocSinh.Location = new System.Drawing.Point(103, 69);
             this.txtTenHocSinh.Name = "txtTenHocSinh";
             this.txtTenHocSinh.Size = new System.Drawing.Size(165, 22);
             this.txtTenHocSinh.TabIndex = 3;
@@ -265,7 +244,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(5, 59);
+            this.label2.Location = new System.Drawing.Point(5, 72);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(87, 16);
             this.label2.TabIndex = 2;
@@ -273,7 +252,7 @@
             // 
             // txtMaHocSinh
             // 
-            this.txtMaHocSinh.Location = new System.Drawing.Point(103, 24);
+            this.txtMaHocSinh.Location = new System.Drawing.Point(103, 30);
             this.txtMaHocSinh.Name = "txtMaHocSinh";
             this.txtMaHocSinh.Size = new System.Drawing.Size(165, 22);
             this.txtMaHocSinh.TabIndex = 1;
@@ -281,7 +260,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(7, 30);
+            this.label1.Location = new System.Drawing.Point(7, 36);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(82, 16);
             this.label1.TabIndex = 0;
@@ -533,7 +512,7 @@
             this.groupBox4.Size = new System.Drawing.Size(326, 52);
             this.groupBox4.TabIndex = 35;
             this.groupBox4.TabStop = false;
-            this.groupBox4.Text = "Tìm kiếm theo lớp học";
+            this.groupBox4.Text = "Xem d.sách lớp";
             // 
             // cbbLopTimKiem
             // 
@@ -663,8 +642,6 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.DataGridView dgvData;
         private System.Windows.Forms.ComboBox cbbLop;
-        private System.Windows.Forms.TextBox txtMatKhau;
-        private System.Windows.Forms.Label label13;
         private System.Windows.Forms.DataGridViewTextBoxColumn MaHocSinh;
         private System.Windows.Forms.DataGridViewTextBoxColumn TenHocSinh;
         private System.Windows.Forms.DataGridViewTextBoxColumn NgaySinh;

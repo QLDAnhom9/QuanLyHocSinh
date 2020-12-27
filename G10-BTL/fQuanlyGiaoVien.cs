@@ -12,6 +12,8 @@ namespace G10_BTL.GUI
 {
     public partial class fQuanlyGiaoVien : Form
     {
+        List<GiaoVien> listgv;
+
         public fQuanlyGiaoVien()
         {
             InitializeComponent();
@@ -33,10 +35,8 @@ namespace G10_BTL.GUI
             txtDiaChi.Text = "";
             txtSDT.Text = "";
             txtTenGV.Text = "";
-            txtTenDangNhap.Text = "";
-            txtMatKhau.Text = "";
 
-            List<GiaoVien> listgv = db.GiaoVien.Where(m => m.trangThai == true).ToList();
+            listgv = db.GiaoVien.Where(m => m.trangThai == true).ToList();
             foreach (GiaoVien i in listgv)
             {
                 dgvData.Rows.Add(i.maGV, i.ten, i.ngaySinh, i.gioiTinh, i.diaChi, i.sdt, i.bangCap, i.tgBatDau);
@@ -92,8 +92,6 @@ namespace G10_BTL.GUI
             diachi = txtDiaChi.Text;
             bangcap = txtBangCap.Text;
             ngayvaolam = dtpNgayVaoLam.Value.ToString();
-            taikhoan = txtTenDangNhap.Text;
-            matkhau = txtMatKhau.Text;
             
             GiaoVien gv = new GiaoVien();
             gv.maGV = ma;
@@ -135,7 +133,6 @@ namespace G10_BTL.GUI
                 db.SaveChanges();
                 MessageBox.Show("Xóa thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 QuanlyGiaoVien_Load(sender, e);
-                return;
             }
         }
 
@@ -183,53 +180,34 @@ namespace G10_BTL.GUI
 
         private void txtMaGV_TextChanged(object sender, EventArgs e)
         {
-            int ma = int.Parse(txtMaGV.Text.ToString());
-            GiaoVien gvv = db.GiaoVien.Where(m => m.maGV == ma).FirstOrDefault();
-            if (gvv != null)
-            {
-                txtTenDangNhap.Enabled = false;
-                txtMatKhau.Enabled = false;
-            }
-            else
-            {
-                txtTenDangNhap.Enabled = true;
-                txtMatKhau.Enabled = true;
-            }
+
         }
 
         private void btnLoc_Click(object sender, EventArgs e)
         {
-            dgvData.Rows.Clear();
-            List<GiaoVien> listgv = new List<GiaoVien>();
             if (txtMaGVTimKiem.Text != "")
             {
-                int ma = int.Parse(txtMaGVTimKiem.Text);
-                listgv = db.GiaoVien.Where(m => m.trangThai == true && m.maGV == ma).ToList();
-            }
-            else
-            {
-                listgv = db.GiaoVien.Where(m => m.trangThai == true).ToList();
+                try
+                {
+                    int ma = int.Parse(txtMaGVTimKiem.Text);
+                    listgv = listgv.Where(m => m.maGV == ma).ToList();
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("Nhập sai mã giáo viên","Cảnh báo",MessageBoxButtons.OK,MessageBoxIcon.Warning);
+                    return;
+                }                
             }
             if(txtTenGVTimKiem.Text != "")
             {
                 listgv = listgv.Where(m => m.ten.ToUpper().Contains(txtTenGVTimKiem.Text.ToUpper())).ToList();
             }
+            dgvData.Rows.Clear();
             foreach (GiaoVien i in listgv)
             {
                 dgvData.Rows.Add(i.maGV, i.ten, i.ngaySinh, i.gioiTinh, i.diaChi, i.sdt, i.bangCap, i.tgBatDau);
             }
-            dtpNgaySinh.Text = DateTime.Now.Day.ToString() + "/" + DateTime.Now.Month.ToString() + "/" + DateTime.Now.Year.ToString();
-            dtpNgayVaoLam.Text = DateTime.Now.Day.ToString() + "/" + DateTime.Now.Month.ToString() + "/" + DateTime.Now.Year.ToString();
-            txtMaGV.Enabled = false;
-            List<GiaoVien> lgv = db.GiaoVien.ToList();
-            txtMaGV.Text = (lgv.Count() + 1).ToString();
-            rdbNam.Checked = true;
-            txtBangCap.Text = "";
-            txtDiaChi.Text = "";
-            txtSDT.Text = "";
-            txtTenGV.Text = "";
-            txtTenDangNhap.Text = "";
-            txtMatKhau.Text = "";
+            dgvData.ClearSelection();
         }
 
         private void dgvData_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -243,8 +221,6 @@ namespace G10_BTL.GUI
             txtBangCap.Text = gv.bangCap;
             txtDiaChi.Text = gv.diaChi;
             txtSDT.Text = gv.sdt;
-            txtTenDangNhap.Text = gv.taiKhoan;
-            txtMatKhau.Text = gv.matKhau;
             
 
             if (gv.gioiTinh == Settings.NAM)

@@ -53,6 +53,9 @@
             this.HocKy = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lop = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.NamHoc = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MaGV = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MaHK = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MaLop = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvData)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -191,10 +194,14 @@
             this.GIaoVienDay,
             this.HocKy,
             this.lop,
-            this.NamHoc});
+            this.NamHoc,
+            this.MaGV,
+            this.MaHK,
+            this.MaLop});
             this.dgvData.Location = new System.Drawing.Point(6, 19);
             this.dgvData.Name = "dgvData";
             this.dgvData.ReadOnly = true;
+            this.dgvData.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvData.Size = new System.Drawing.Size(612, 443);
             this.dgvData.TabIndex = 24;
             this.dgvData.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvData_CellClick);
@@ -334,6 +341,27 @@
             this.NamHoc.ReadOnly = true;
             this.NamHoc.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
+            // MaGV
+            // 
+            this.MaGV.HeaderText = "Mã GV";
+            this.MaGV.Name = "MaGV";
+            this.MaGV.ReadOnly = true;
+            this.MaGV.Visible = false;
+            // 
+            // MaHK
+            // 
+            this.MaHK.HeaderText = "Mã HK";
+            this.MaHK.Name = "MaHK";
+            this.MaHK.ReadOnly = true;
+            this.MaHK.Visible = false;
+            // 
+            // MaLop
+            // 
+            this.MaLop.HeaderText = "Mã lớp";
+            this.MaLop.Name = "MaLop";
+            this.MaLop.ReadOnly = true;
+            this.MaLop.Visible = false;
+            // 
             // fMonHoc
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -391,5 +419,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn HocKy;
         private System.Windows.Forms.DataGridViewTextBoxColumn lop;
         private System.Windows.Forms.DataGridViewTextBoxColumn NamHoc;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MaGV;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MaHK;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MaLop;
     }
 }

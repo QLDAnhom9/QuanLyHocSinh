@@ -32,7 +32,7 @@ namespace G10_BTL.GUI
             cbbHocKy.DisplayMember = Settings.TEN_HK;
             cbbHocKy.ValueMember = Settings.MA_HK;
 
-            cbbLop.DataSource = db.Lop.Where(m=>m.trangThai == true).ToList();
+            cbbLop.DataSource = db.Lop.Where(m => m.trangThai == true).ToList();
             cbbLop.DisplayMember = Settings.TEN_LOP;
             cbbLop.ValueMember = Settings.MA_LOP;
 
@@ -52,20 +52,20 @@ namespace G10_BTL.GUI
             txtTenMonHoc.Text = "";
 
             List<Mon> list = db.Mon.Where(m => m.trangThai == true).ToList();
-            
+
             foreach (Mon i in list)
             {
                 string tenGV = "", tenHK = "", tenLop = "", nam = "";
-                if ( i.maHK != null )
+                if (i.maHK != null)
                     tenHK = db.HocKy.Where(m => m.maHK == i.maHK).Select(m => m.tenHK).FirstOrDefault().ToString();
-                if ( i.gvDay != null )
+                if (i.gvDay != null)
                     tenGV = db.GiaoVien.Where(m => m.maGV == i.gvDay).Select(m => m.ten).FirstOrDefault().ToString();
                 if (i.maLop != null)
                 {
                     tenLop = db.Lop.Where(m => m.maLop == i.maLop && m.trangThai == true).Select(m => m.tenLop).FirstOrDefault().ToString();
                     nam = db.Lop.Where(m => m.maLop == i.maLop && m.trangThai == true).Select(m => m.nam).FirstOrDefault().ToString();
                 }
-                dgvData.Rows.Add(i.maMon, i.tenMon, tenGV, tenHK, tenLop, nam);
+                dgvData.Rows.Add(i.maMon, i.tenMon, tenGV, tenHK, tenLop, nam, i.gvDay, i.maHK, i.maLop);
             }
         }
 
@@ -120,7 +120,8 @@ namespace G10_BTL.GUI
             }
 
             DialogResult dialogResult = MessageBox.Show("Bạn có muốn thêm mới môn " + txtTenMonHoc.Text + " không?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (dialogResult == DialogResult.Yes) {
+            if (dialogResult == DialogResult.Yes)
+            {
                 Mon m = new Mon();
                 m.tenMon = tenmon;
                 m.gvDay = magv;
@@ -142,7 +143,7 @@ namespace G10_BTL.GUI
             }
 
             int mamon = int.Parse(txtMaMonHoc.Text.ToString());
-            if(mamon != mon.maMon)
+            if (mamon != mon.maMon)
             {
                 return;
             }
@@ -158,7 +159,7 @@ namespace G10_BTL.GUI
                 return;
             }
             Mon m = db.Mon.Where(i => i.maMon == mamon && i.trangThai == true).FirstOrDefault();
-            DialogResult dialogResult = MessageBox.Show("Bạn có muốn sửa thông tin môn " + m.tenMon+ " không?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            DialogResult dialogResult = MessageBox.Show("Bạn có muốn sửa thông tin môn " + m.tenMon + " không?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (dialogResult == DialogResult.Yes)
             {
                 m.tenMon = tenmon;
@@ -191,7 +192,7 @@ namespace G10_BTL.GUI
             }
 
             List<Mon> list = new List<Mon>();
-            if(txtTenMonHoc.Text == "")
+            if (txtTenMonHoc.Text == "")
             {
                 list = db.Mon.Where(m => m.trangThai == true).ToList();
             }
@@ -200,11 +201,11 @@ namespace G10_BTL.GUI
                 list = db.Mon.Where(m => m.trangThai == true && m.tenMon.ToUpper().Contains(txtTenMonHoc.Text.ToUpper())).ToList();
             }
 
-            if(malop != -1)
+            if (malop != -1)
             {
                 list = list.Where(m => m.maLop == malop).ToList();
             }
-            if(mahocky != -1)
+            if (mahocky != -1)
             {
                 list = list.Where(m => m.maHK == mahocky).ToList();
             }
@@ -228,14 +229,14 @@ namespace G10_BTL.GUI
 
             Mon x = db.Mon.Where(m => m.maMon == mamonhoc && m.trangThai == true).FirstOrDefault();
 
-            if(x == null)
+            if (x == null)
             {
                 return;
             }
             else
             {
                 DialogResult dialogResult = MessageBox.Show("Bạn có muốn xóa môn " + x.tenMon + " không?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
-                if(dialogResult == DialogResult.Yes)
+                if (dialogResult == DialogResult.Yes)
                 {
                     x.trangThai = false;
                     db.SaveChanges();
@@ -249,32 +250,33 @@ namespace G10_BTL.GUI
         private void dgvData_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             int index = dgvData.CurrentRow.Index;
-            int mamon = int.Parse(dgvData.Rows[index].Cells[0].Value.ToString());
-            string tengv, tenhk, tenlop;
+            int mamon = Int32.Parse(dgvData.Rows[index].Cells[0].Value.ToString());
+            string tenmon, tengv, tenhk, tenlop;
+            int magv = -1, mahk = -1, malop = -1;
+
+            // lấy tên
+            tenmon = dgvData.Rows[index].Cells[1].Value.ToString();
+            tengv = dgvData.Rows[index].Cells[2].Value.ToString();
+            tenhk = dgvData.Rows[index].Cells[3].Value.ToString();
+            tenlop = dgvData.Rows[index].Cells[4].Value.ToString();
             try
             {
-                tengv = dgvData.Rows[index].Cells[2].Value.ToString();
-                tenhk = dgvData.Rows[index].Cells[3].Value.ToString();
-                tenlop = dgvData.Rows[index].Cells[4].Value.ToString();
+                // lấy mã
+                magv = Int32.Parse(dgvData.Rows[index].Cells[6].Value.ToString());
+                mahk = Int32.Parse(dgvData.Rows[index].Cells[7].Value.ToString());
+                malop = Int32.Parse(dgvData.Rows[index].Cells[8].Value.ToString());
             }
             catch (Exception)
             {
-                tenlop = "";
-                tenhk = "";
-                tengv = "";
+
             }
 
-            Mon x = db.Mon.Where(m => m.maMon == mamon && m.trangThai == true).FirstOrDefault();
-            mon = x;
-
-            int vt1 = -1, vt2 = -1, vt3 = -1;
-
-            cbbGVDay.SelectedIndex = vt3;
-            cbbHocKy.SelectedIndex = vt2;
-            cbbLop.SelectedIndex = vt1;
+            cbbGVDay.SelectedIndex = magv == -1 ? -1 : cbbGVDay.FindString(tengv);
+            cbbHocKy.SelectedIndex = mahk == -1 ? -1 : cbbHocKy.FindString(tenhk);
+            cbbLop.SelectedIndex = malop == -1 ? -1 : cbbLop.FindString(tenlop);
 
             txtMaMonHoc.Text = mamon.ToString();
-            txtTenMonHoc.Text = x.tenMon;
+            txtTenMonHoc.Text = tenmon;
         }
 
         private void cbbLop_SelectedIndexChanged(object sender, EventArgs e)

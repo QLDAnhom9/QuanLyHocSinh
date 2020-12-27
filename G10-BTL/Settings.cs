@@ -31,6 +31,10 @@ namespace G10_BTL
         public static String CHON_GV = "Chọn giáo viên dạy";
         public static String TEN_GV = "ten";
         public static String MA_GV = "maGV";
+        // Học sinh
+        public static String CHON_HS = "Chọn học sinh";
+        public static String TEN_HS = "ten";
+        public static String MA_HS = "maHS";
         // Mặc định
         public static String MA_HS_MAC_DINH = "2020000";
         public static String MA_MH_MAC_DINH = "1";
