@@ -29,15 +29,6 @@
         private void InitializeComponent()
         {
             this.dgvData = new System.Windows.Forms.DataGridView();
-            this.MaHocSinh = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TenHocSinh = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.LopHoc = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MaMonHoc = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TenMonHoc = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DIemGiuaKy = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DiemCuoiKy = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.HocKy = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MaDiem = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnClear = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -57,6 +48,14 @@
             this.label9 = new System.Windows.Forms.Label();
             this.btnCapNhat = new System.Windows.Forms.Button();
             this.btnThem = new System.Windows.Forms.Button();
+            this.MaHocSinh = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TenHocSinh = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.LopHoc = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MaMonHoc = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TenMonHoc = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DIemGiuaKy = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DiemCuoiKy = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.HocKy = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvData)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -78,8 +77,7 @@
             this.TenMonHoc,
             this.DIemGiuaKy,
             this.DiemCuoiKy,
-            this.HocKy,
-            this.MaDiem});
+            this.HocKy});
             this.dgvData.Location = new System.Drawing.Point(9, 252);
             this.dgvData.Name = "dgvData";
             this.dgvData.ReadOnly = true;
@@ -88,76 +86,6 @@
             this.dgvData.TabIndex = 14;
             this.dgvData.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvData_CellClick);
             this.dgvData.SelectionChanged += new System.EventHandler(this.dgvData_SelectionChanged);
-            // 
-            // MaHocSinh
-            // 
-            this.MaHocSinh.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.MaHocSinh.FillWeight = 65F;
-            this.MaHocSinh.HeaderText = "Mã học sinh";
-            this.MaHocSinh.Name = "MaHocSinh";
-            this.MaHocSinh.ReadOnly = true;
-            // 
-            // TenHocSinh
-            // 
-            this.TenHocSinh.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.TenHocSinh.HeaderText = "Tên học sinh";
-            this.TenHocSinh.Name = "TenHocSinh";
-            this.TenHocSinh.ReadOnly = true;
-            // 
-            // LopHoc
-            // 
-            this.LopHoc.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.LopHoc.FillWeight = 60F;
-            this.LopHoc.HeaderText = "Lớp";
-            this.LopHoc.Name = "LopHoc";
-            this.LopHoc.ReadOnly = true;
-            // 
-            // MaMonHoc
-            // 
-            this.MaMonHoc.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.MaMonHoc.FillWeight = 80F;
-            this.MaMonHoc.HeaderText = "Mã môn học";
-            this.MaMonHoc.Name = "MaMonHoc";
-            this.MaMonHoc.ReadOnly = true;
-            this.MaMonHoc.Visible = false;
-            // 
-            // TenMonHoc
-            // 
-            this.TenMonHoc.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.TenMonHoc.HeaderText = "Tên môn học";
-            this.TenMonHoc.Name = "TenMonHoc";
-            this.TenMonHoc.ReadOnly = true;
-            // 
-            // DIemGiuaKy
-            // 
-            this.DIemGiuaKy.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.DIemGiuaKy.FillWeight = 65F;
-            this.DIemGiuaKy.HeaderText = "Điểm giữa kỳ";
-            this.DIemGiuaKy.Name = "DIemGiuaKy";
-            this.DIemGiuaKy.ReadOnly = true;
-            // 
-            // DiemCuoiKy
-            // 
-            this.DiemCuoiKy.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.DiemCuoiKy.FillWeight = 65F;
-            this.DiemCuoiKy.HeaderText = "Điểm cuối kỳ";
-            this.DiemCuoiKy.Name = "DiemCuoiKy";
-            this.DiemCuoiKy.ReadOnly = true;
-            // 
-            // HocKy
-            // 
-            this.HocKy.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.HocKy.FillWeight = 60F;
-            this.HocKy.HeaderText = "Học kỳ";
-            this.HocKy.Name = "HocKy";
-            this.HocKy.ReadOnly = true;
-            // 
-            // MaDiem
-            // 
-            this.MaDiem.HeaderText = "Mã Điểm";
-            this.MaDiem.Name = "MaDiem";
-            this.MaDiem.ReadOnly = true;
-            this.MaDiem.Visible = false;
             // 
             // btnClear
             // 
@@ -387,6 +315,77 @@
             this.btnThem.UseVisualStyleBackColor = false;
             this.btnThem.Click += new System.EventHandler(this.btnThem_Click);
             // 
+            // MaHocSinh
+            // 
+            this.MaHocSinh.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.MaHocSinh.FillWeight = 65F;
+            this.MaHocSinh.HeaderText = "Mã học sinh";
+            this.MaHocSinh.Name = "MaHocSinh";
+            this.MaHocSinh.ReadOnly = true;
+            this.MaHocSinh.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // TenHocSinh
+            // 
+            this.TenHocSinh.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.TenHocSinh.HeaderText = "Tên học sinh";
+            this.TenHocSinh.Name = "TenHocSinh";
+            this.TenHocSinh.ReadOnly = true;
+            this.TenHocSinh.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // LopHoc
+            // 
+            this.LopHoc.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.LopHoc.FillWeight = 60F;
+            this.LopHoc.HeaderText = "Lớp";
+            this.LopHoc.Name = "LopHoc";
+            this.LopHoc.ReadOnly = true;
+            this.LopHoc.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // MaMonHoc
+            // 
+            this.MaMonHoc.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.MaMonHoc.FillWeight = 80F;
+            this.MaMonHoc.HeaderText = "Mã môn học";
+            this.MaMonHoc.Name = "MaMonHoc";
+            this.MaMonHoc.ReadOnly = true;
+            this.MaMonHoc.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.MaMonHoc.Visible = false;
+            // 
+            // TenMonHoc
+            // 
+            this.TenMonHoc.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.TenMonHoc.HeaderText = "Tên môn học";
+            this.TenMonHoc.Name = "TenMonHoc";
+            this.TenMonHoc.ReadOnly = true;
+            this.TenMonHoc.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // DIemGiuaKy
+            // 
+            this.DIemGiuaKy.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.DIemGiuaKy.FillWeight = 65F;
+            this.DIemGiuaKy.HeaderText = "Điểm giữa kỳ";
+            this.DIemGiuaKy.Name = "DIemGiuaKy";
+            this.DIemGiuaKy.ReadOnly = true;
+            this.DIemGiuaKy.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // DiemCuoiKy
+            // 
+            this.DiemCuoiKy.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.DiemCuoiKy.FillWeight = 65F;
+            this.DiemCuoiKy.HeaderText = "Điểm cuối kỳ";
+            this.DiemCuoiKy.Name = "DiemCuoiKy";
+            this.DiemCuoiKy.ReadOnly = true;
+            this.DiemCuoiKy.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // HocKy
+            // 
+            this.HocKy.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.HocKy.FillWeight = 60F;
+            this.HocKy.HeaderText = "Học kỳ";
+            this.HocKy.Name = "HocKy";
+            this.HocKy.ReadOnly = true;
+            this.HocKy.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
             // fQuanlyDiem
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -447,6 +446,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn DIemGiuaKy;
         private System.Windows.Forms.DataGridViewTextBoxColumn DiemCuoiKy;
         private System.Windows.Forms.DataGridViewTextBoxColumn HocKy;
-        private System.Windows.Forms.DataGridViewTextBoxColumn MaDiem;
     }
 }

@@ -271,6 +271,7 @@ namespace G10_BTL.GUI
 
             }
 
+            // đưa comboxbox selectedindex đến vị trí ướng ứng với thông tin
             cbbGVDay.SelectedIndex = magv == -1 ? -1 : cbbGVDay.FindString(tengv);
             cbbHocKy.SelectedIndex = mahk == -1 ? -1 : cbbHocKy.FindString(tenhk);
             cbbLop.SelectedIndex = malop == -1 ? -1 : cbbLop.FindString(tenlop);

@@ -165,6 +165,7 @@ namespace G10_BTL.GUI
                     int mahk = Int32.Parse(cbbHocKy.SelectedValue.ToString());
                     // Đưa các môn học của học kỳ được chọn lên Combobox Môn học       
                     cbbMonHoc.DataSource = db.Mon.Where(m => m.trangThai == true && m.maHK == mahk && m.maLop == malop).ToList();
+                    cbbMonHoc.SelectedIndex = -1;
                 }
                 catch (Exception)
                 {
@@ -185,7 +186,7 @@ namespace G10_BTL.GUI
 
                     // Đưa lên danh sách học sinh trong lớp này
                     cbbHocSinh.DataSource = db.HocSinh.Where(m => m.trangThai == true && m.maLop == malop).ToList();
-
+                    cbbHocSinh.SelectedIndex = -1;
                     cbbHocSinh.Enabled = true;
                     cbbLop.Enabled = false;
                 }
@@ -244,6 +245,7 @@ namespace G10_BTL.GUI
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             cbbHocKy.Enabled = true;
+            cbbHocKy.SelectedIndex = -1;
         }
 
         private void btnClear_Click(object sender, EventArgs e)
